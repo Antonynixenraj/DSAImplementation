@@ -1,12 +1,14 @@
 package LinkedList;
 
+import java.util.List;
+
 public class SinglyLinkedList {
 
 
 // -------------------------- NODE CLASS ----------------------------------------------
-    public class Node {
-        public int val;
-        public Node next;
+    private class Node {
+        int val;
+        Node next;
 
         Node(int val){
             this.val=val;
@@ -15,12 +17,12 @@ public class SinglyLinkedList {
 
  // -------------------------- ESSENTIAL METHODS ----------------------------------------------
 
-    public Node head;
-    public Node tail;
-    public int size;
+    private Node head;
+    private Node tail;
+    private int size;
 
     public boolean isEmpty(){
-        return size==0;
+        return head==null;
     }
     public int length(){
         return size;
@@ -51,8 +53,6 @@ public class SinglyLinkedList {
         node.next=head;
         head=node;
         size++;
-
-        return;
     }
     public void append(int val){
         Node node=new Node(val);
@@ -65,7 +65,6 @@ public class SinglyLinkedList {
         tail.next=node;
         tail=node;
         size++;
-        return;
     }
     public boolean insert(int ind,int val){
         if(ind<0) return false;
@@ -242,28 +241,16 @@ public class SinglyLinkedList {
         }
         return true;
     }
-
-
-
-
     public static void main(String[] args) {
-        SinglyLinkedList list=new SinglyLinkedList();
-       list.appendArray(new int[]{1});
-        System.out.println(list);
-        //list.update(0, 0);
-        System.out.println(list);
-        // list.deleteFirst();
-        // System.out.println(list);
-        // list.reverse();
-        // list.reverse();
-        // System.out.println(list);
-        // SinglyLinkedList list2=list.copy();
-        // list2.deleteLast();
-        // System.out.println(list.equals(list2));
-    
+        SinglyLinkedList lst=new SinglyLinkedList();
+        lst.append(1);
+        lst.prepend(2);
 
+        SinglyLinkedList lst1=new SinglyLinkedList();
+        lst1.append(1);
+        lst1.append(56);
+        lst1.append(12);
     }
 
-    
 }
 
